@@ -1,0 +1,57 @@
+var readlineSync = require("readline-sync");
+
+var score = 0;
+
+var userName = readlineSync.question("What's your name? ");
+
+console.log("Welcome " + userName + " to DO YOU KNOW THE World ");
+
+function play(question, answer) {
+  var userAnswer = readlineSync.question(question);
+
+  if (userAnswer === answer) {
+   
+    console.log ("right!");
+    score = score + 1;
+
+  } else {
+    console.log ("wrong!");
+  }
+
+  console.log("current score: " + score);
+  console.log("----------------");
+}
+
+var questions= [{
+  question:"What year was the first Iron Man movie released, kicking off the Marvel Cinematic Universe? ",
+
+ answer: "2008"
+}, {
+  question: "What is the name of Thor’s hammer? ",
+
+answer: "Mjolnir"
+
+}, {
+  question:"In the Incredible Hulk, what does Tony tell Thaddeus Ross at the end of the film? ",
+
+  answer:"That they are putting a team together"
+
+}, {
+question:"What is Captain America’s shield made of? ",
+
+answer:" Vibranium"
+
+}, {
+  question: "The Flerkens are a race of extremely dangerous aliens that resembles what?  ",
+
+  answer:"Cats"
+}];
+
+
+for (var i = 0; i < questions.length; i++) {
+  var currentQuestion = questions[i];
+  play(currentQuestion.question,
+  currentQuestion.answer)
+}
+
+console.log("Hurray! You scored: " + score);
